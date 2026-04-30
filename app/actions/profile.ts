@@ -20,8 +20,7 @@ export async function updateEmail(_prev: State, formData: FormData): Promise<Sta
   const email = (formData.get("email") as string).trim();
   const { error } = await supabase.auth.updateUser({ email });
   if (error) return { error: error.message };
-  revalidatePath("/", "layout");
-  return { success: "Email updated." };
+  return { success: "Confirmation email sent. Please check your new inbox and click the link to confirm the change." };
 }
 
 export async function updatePassword(_prev: State, formData: FormData): Promise<State> {
