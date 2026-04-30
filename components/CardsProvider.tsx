@@ -14,7 +14,11 @@ export function CardsProvider({ children }: { children: React.ReactNode }) {
     // onAuthStateChange fires immediately with INITIAL_SESSION (covering first load)
     // and again on SIGNED_IN / SIGNED_OUT, so we never need a separate hydrate() call.
     const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
-      hydrate();
+      hydrate().catch(() => {
+        // If Supabase is unreachable (bad env vars, network error) still
+        // unblock the UI so the app renders in a degraded state.
+        useCardsStore.setState({ hydrated: true });
+      });
     });
     return () => subscription.unsubscribe();
   }, [hydrate]);

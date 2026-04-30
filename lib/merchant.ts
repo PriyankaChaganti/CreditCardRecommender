@@ -38,7 +38,11 @@ export async function loadMerchantMap(): Promise<void> {
   const { data, error } = await supabase
     .from("merchant_categories")
     .select("merchant_key, category");
-  if (error) throw error;
+  if (error) {
+    console.error("[merchant] Failed to load merchant_categories:", error.message);
+    _map = {};
+    return;
+  }
   _map = {};
   (data ?? []).forEach((row: MerchantRow) => {
     _map![row.merchant_key] = row.category;
