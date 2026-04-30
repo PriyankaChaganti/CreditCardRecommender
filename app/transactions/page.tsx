@@ -683,11 +683,23 @@ export default function TransactionsPage() {
           <div className="h-8 w-8 animate-spin rounded-full border-2 border-indigo-600 border-t-transparent" />
         </div>
       ) : filtered.length === 0 ? (
-        <div className="flex flex-col items-center gap-3 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700 py-16 text-center">
+        <div className="flex flex-col items-center gap-4 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700 py-16 text-center">
           <span className="text-4xl">💸</span>
           <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
-            {transactions.length === 0 ? "No transactions yet — add your first one above." : "No transactions match your filters."}
+            {transactions.length === 0 ? "No transactions yet." : "No transactions match your filters."}
           </p>
+          {transactions.length === 0 && (
+            <button
+              type="button"
+              onClick={() => { setFormError(null); setModalOpen(true); }}
+              className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:opacity-90 transition-opacity"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+              </svg>
+              Add your first transaction
+            </button>
+          )}
         </div>
       ) : (
         <div className="flex flex-col gap-2">
@@ -699,6 +711,17 @@ export default function TransactionsPage() {
               onEdit={(t) => { setFormError(null); setEditingTx(t); }}
             />
           ))}
+          {/* Add button below the list */}
+          <button
+            type="button"
+            onClick={() => { setFormError(null); setModalOpen(true); }}
+            className="mt-2 inline-flex items-center justify-center gap-1.5 self-center rounded-full border border-slate-200 dark:border-slate-700 px-5 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all"
+          >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
+            Add transaction
+          </button>
         </div>
       )}
 
