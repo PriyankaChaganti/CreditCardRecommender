@@ -379,27 +379,32 @@ export default function InsightsPage() {
               {agg.byCategory.length === 0 ? (
                 <p className="text-xs text-slate-400">No data.</p>
               ) : (
-                {mounted && <div className="h-52">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie data={agg.byCategory.map(c => ({ name: `${CATEGORY_ICONS[c.category] ?? ""} ${c.category}`, value: +c.spend.toFixed(2) }))}
-                        cx="50%" cy="50%" innerRadius="55%" outerRadius="80%"
-                        dataKey="value" paddingAngle={2}>
-                        {agg.byCategory.map((_, i) => <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />)}
-                      </Pie>
-                      <Tooltip formatter={(v: number) => fmt(v)} />
-                    </PieChart>
-                  </ResponsiveContainer>
-                </div>}
-              <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
-                {agg.byCategory.slice(0, 6).map((c, i) => (
-                  <span key={c.category} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-300">
-                    <span className="h-2 w-2 rounded-full" style={{ background: CHART_COLORS[i % CHART_COLORS.length] }} />
-                    <span className="capitalize">{c.category}</span>
-                    <span className="text-slate-400">{fmt(c.spend)}</span>
-                  </span>
-                ))}
-              </div>
+                <>
+                {mounted && (
+                  <div className="h-52">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <PieChart>
+                        <Pie data={agg.byCategory.map(c => ({ name: `${CATEGORY_ICONS[c.category] ?? ""} ${c.category}`, value: +c.spend.toFixed(2) }))}
+                          cx="50%" cy="50%" innerRadius="55%" outerRadius="80%"
+                          dataKey="value" paddingAngle={2}>
+                          {agg.byCategory.map((_, i) => <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />)}
+                        </Pie>
+                        <Tooltip formatter={(v: number) => fmt(v)} />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  </div>
+                )}
+                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+                  {agg.byCategory.slice(0, 6).map((c, i) => (
+                    <span key={c.category} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-300">
+                      <span className="h-2 w-2 rounded-full" style={{ background: CHART_COLORS[i % CHART_COLORS.length] }} />
+                      <span className="capitalize">{c.category}</span>
+                      <span className="text-slate-400">{fmt(c.spend)}</span>
+                    </span>
+                  ))}
+                </div>
+                </>
+              )}
             </Section>
 
             {/* Earned vs Missed by category — bar */}
