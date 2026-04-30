@@ -462,6 +462,7 @@ export default function TransactionsPage() {
   // Filters
   const [tab, setTab] = useState<Tab>("all");
   const [search, setSearch] = useState("");
+  const [committedSearch, setCommittedSearch] = useState("");
   const [filterCard, setFilterCard] = useState("");
   const [filterCategory, setFilterCategory] = useState("");
   const [dateFrom, setDateFrom] = useState("");
@@ -495,8 +496,8 @@ export default function TransactionsPage() {
     let list = annotated;
     if (tab === "optimal") list = list.filter((t) => t.isOptimal && t.amount > 0);
     if (tab === "missed") list = list.filter((t) => t.missedDollars > 0.005);
-    if (search) {
-      const q = search.toLowerCase();
+    if (committedSearch) {
+      const q = committedSearch.toLowerCase();
       list = list.filter((t) => t.merchant.toLowerCase().includes(q) || String(t.amount).includes(q));
     }
     if (filterCard) list = list.filter((t) => t.card_name === filterCard);
@@ -504,7 +505,7 @@ export default function TransactionsPage() {
     if (dateFrom) list = list.filter((t) => t.date >= dateFrom);
     if (dateTo) list = list.filter((t) => t.date <= dateTo);
     return list;
-  }, [annotated, tab, search, filterCard, filterCategory, dateFrom, dateTo]);
+  }, [annotated, tab, committedSearch, filterCard, filterCategory, dateFrom, dateTo]);
 
   /* ── Add ── */
   async function handleAdd(values: TransactionFormValues) {
@@ -624,15 +625,27 @@ export default function TransactionsPage() {
           </div>
 
           {/* Search */}
-          <div className="relative flex-1 min-w-[180px]">
-            <svg className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <circle cx={11} cy={11} r={8} /><path strokeLinecap="round" strokeLinejoin="round" d="m21 21-4.35-4.35" />
-            </svg>
-            <input
-              type="search" value={search} onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search merchant…"
-              className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 py-2 pl-9 pr-3 text-sm text-slate-900 dark:text-slate-50 placeholder:text-slate-400 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/20 transition-all"
-            />
+          <div className="relative flex-1 min-w-[180px] flex gap-2">
+            <div className="relative flex-1">
+              <svg className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <circle cx={11} cy={11} r={8} /><path strokeLinecap="round" strokeLinejoin="round" d="m21 21-4.35-4.35" />
+              </svg>
+              <input
+                type="search"
+                value={search}
+                onChange={(e) => { setSearch(e.target.value); if (!e.target.value) setCommittedSearch(""); }}
+                onKeyDown={(e) => { if (e.key === "Enter") setCommittedSearch(search); }}
+                placeholder="Search merchant…"
+                className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 py-2 pl-9 pr-3 text-sm text-slate-900 dark:text-slate-50 placeholder:text-slate-400 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/20 transition-all"
+              />
+            </div>
+            <button
+              type="button"
+              onClick={() => setCommittedSearch(search)}
+              className="rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity"
+            >
+              Search
+            </button>
           </div>
         </div>
 
@@ -654,10 +667,10 @@ export default function TransactionsPage() {
             <span className="text-xs text-slate-400">to</span>
             <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)}
               className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-1.5 text-xs text-slate-600 dark:text-slate-300 outline-none focus:border-indigo-400 transition-all" />
-            {(filterCard || filterCategory || dateFrom || dateTo || search) && (
+            {(filterCard || filterCategory || dateFrom || dateTo || committedSearch) && (
               <button
                 type="button"
-                onClick={() => { setFilterCard(""); setFilterCategory(""); setDateFrom(""); setDateTo(""); setSearch(""); }}
+                onClick={() => { setFilterCard(""); setFilterCategory(""); setDateFrom(""); setDateTo(""); setSearch(""); setCommittedSearch(""); }}
                 className="inline-flex items-center gap-1 rounded-lg border border-slate-200 dark:border-slate-700 px-2.5 py-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
               >
                 <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
