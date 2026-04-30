@@ -160,13 +160,12 @@ function aggregate(txs: Transaction[], cards: UserCard[], pointVal: number): Agg
     catMap[tx.category].missed += missed;
     catMap[tx.category].count  += 1;
 
-    // Weekly trend
+    // Daily trend — group by date so each day is its own data point
     const d   = new Date(tx.date + "T00:00:00");
-    const wk  = `${d.getFullYear()}-W${String(Math.ceil((d.getDate()) / 7)).padStart(2, "0")}-${String(d.getMonth() + 1).padStart(2, "0")}`;
     const lbl = d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
-    if (!weekMap[wk]) weekMap[wk] = { label: lbl, earned: 0, missed: 0, potential: 0 };
-    weekMap[wk].earned    += actualDollar;
-    weekMap[wk].missed    += missed;
+    if (!weekMap[tx.date]) weekMap[tx.date] = { label: lbl, earned: 0, missed: 0, potential: 0 };
+    weekMap[tx.date].earned    += actualDollar;
+    weekMap[tx.date].missed    += missed;
     weekMap[wk].potential += bestDollar;
   }
 
@@ -436,8 +435,13 @@ export default function InsightsPage() {
             </Section>
 
             {/* Rewards trend — line */}
-            {agg.trend.length > 1 && (
+            {agg.trend.length > 0 && (
               <Section title="Rewards trend">
+                {agg.trend.length === 1 && (
+                  <p className="mb-3 text-xs text-slate-400 dark:text-slate-500">
+                    Add transactions across multiple dates to see a full trend.
+                  </p>
+                )}
                 {mounted && <div className="h-52">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={agg.trend} margin={{ top: 0, right: 8, left: -20, bottom: 0 }}>
