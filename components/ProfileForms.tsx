@@ -3,7 +3,7 @@
 import { useActionState } from "react";
 import { useTheme } from "next-themes";
 
-import { updateEmail, updateName, updatePassword } from "@/app/actions/profile";
+import { updateName, updatePassword } from "@/app/actions/profile";
 import { useCardsStore } from "@/store/useCardsStore";
 
 type RewardPref = "all" | "cashback" | "points";
@@ -48,7 +48,6 @@ export function ProfileForms({
   currentEmail: string;
 }) {
   const [nameState, nameAction, namePending] = useActionState(updateName, undefined);
-  const [emailState, emailAction, emailPending] = useActionState(updateEmail, undefined);
   const [passState, passAction, passPending] = useActionState(updatePassword, undefined);
 
   const { theme, setTheme } = useTheme();
@@ -110,27 +109,11 @@ export function ProfileForms({
         </form>
       </SectionCard>
 
-      {/* Email */}
+      {/* Email — read only */}
       <SectionCard title="Email address">
-        <form action={emailAction} className="flex flex-col gap-3">
-          <input
-            name="email"
-            type="email"
-            defaultValue={currentEmail}
-            required
-            className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm text-slate-900 dark:text-slate-50 outline-none ring-indigo-500/20 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-indigo-300 focus:ring-2"
-          />
-          <div className="flex items-center gap-3">
-            <button
-              type="submit"
-              disabled={emailPending}
-              className="rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition-opacity disabled:opacity-60"
-            >
-              {emailPending ? "Updating…" : "Update email"}
-            </button>
-            <StatusMessage state={emailState} />
-          </div>
-        </form>
+        <p className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2 text-sm text-slate-500 dark:text-slate-400">
+          {currentEmail}
+        </p>
       </SectionCard>
 
       {/* Appearance */}
