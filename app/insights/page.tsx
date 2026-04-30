@@ -138,7 +138,10 @@ function aggregate(txs: Transaction[], cards: UserCard[], pointVal: number): Agg
     }
 
     // Actual reward
-    const usedCard = cards.find((c) => c.id === tx.card_id) ?? null;
+    // Match by id first, fall back to card_name in case card was re-added with a new UUID
+    const usedCard = cards.find((c) => c.id === tx.card_id)
+      ?? (tx.card_name ? cards.find((c) => c.card_name.toLowerCase() === tx.card_name!.toLowerCase()) : null)
+      ?? null;
     const actualDollar = usedCard ? getRewardDollarValue(usedCard, tx.category, tx.amount, pointVal) : 0;
     const missed = Math.max(0, bestDollar - actualDollar);
 

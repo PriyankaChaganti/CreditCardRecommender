@@ -58,7 +58,9 @@ function annotate(tx: Transaction, cards: UserCard[], pointValuation: number): T
     return { ...tx, actualReward: null, bestReward: null, missedDollars: 0, isOptimal: true };
   }
 
-  const usedCard = cards.find((c) => c.id === tx.card_id) ?? null;
+  const usedCard = cards.find((c) => c.id === tx.card_id)
+    ?? (tx.card_name ? cards.find((c) => c.card_name.toLowerCase() === tx.card_name!.toLowerCase()) : null)
+    ?? null;
   const actualReward = usedCard ? getRewardForCard(usedCard, tx.category, tx.amount, pointValuation) : null;
 
   let bestReward: RewardDetail | null = null;
