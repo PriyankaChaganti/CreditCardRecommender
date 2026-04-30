@@ -29,27 +29,33 @@ const CATEGORY_FALLBACKS: Record<string, string[]> = {
   shopping: ["online", "other", "general", "everything"],
 };
 
-function getBestRateForCategory(category: string): string {
-  const catalog = getCatalog();
+function getBestRateForCategory(category: string, walletCards?: UserCard[]): string {
   const cat = category.toLowerCase();
   const fallbacks = CATEGORY_FALLBACKS[cat] ?? ["other", "general", "everything"];
   const lookup = [cat, ...fallbacks];
 
+  // Use wallet cards when available, fall back to catalog
+  const fromWallet = walletCards && walletCards.length > 0;
+  const source = fromWallet ? walletCards! : getCatalog();
+
   let bestDollarEquiv = 0;
   let bestLabel = "";
 
-  for (const card of catalog) {
+  for (const card of source) {
     for (const rule of card.reward_rules) {
       const rCat = rule.category.trim().toLowerCase();
       if (lookup.includes(rCat)) {
+        const pv = ("point_value" in card && (card as UserCard).point_value > 0)
+          ? (card as UserCard).point_value
+          : 0.01;
         const dollarEquiv = card.reward_type === "cashback"
           ? rule.multiplier
-          : rule.multiplier * 0.01 * 100;
+          : rule.multiplier * pv * 100;
         if (dollarEquiv > bestDollarEquiv) {
           bestDollarEquiv = dollarEquiv;
           bestLabel = card.reward_type === "cashback"
-            ? `Up to ${rule.multiplier}% back`
-            : `Up to ${rule.multiplier}× points`;
+            ? fromWallet ? `${rule.multiplier}% back` : `Up to ${rule.multiplier}% back`
+            : fromWallet ? `${rule.multiplier}× points` : `Up to ${rule.multiplier}× points`;
         }
       }
     }
@@ -136,7 +142,7 @@ function YourCards({ cards }: { cards: UserCard[] }) {
   );
 }
 
-function ExploreByCategory({ onSelect }: { onSelect: (cat: string) => void }) {
+function ExploreByCategory({ onSelect, walletCards }: { onSelect: (cat: string) => void; walletCards: UserCard[] }) {
   const [expanded, setExpanded] = useState(false);
   const allCats = [...KNOWN_CATEGORIES];
   const firstRow = allCats.slice(0, 4);
@@ -158,13 +164,13 @@ function ExploreByCategory({ onSelect }: { onSelect: (cat: string) => void }) {
       <div className="flex flex-col gap-3">
         {/* First row — always visible */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {firstRow.map((cat) => <CategoryTile key={cat} cat={cat} onSelect={onSelect} />)}
+          {firstRow.map((cat) => <CategoryTile key={cat} cat={cat} onSelect={onSelect} walletCards={walletCards} />)}
         </div>
 
         {/* Second row — shown when expanded */}
         {expanded && secondRow.length > 0 && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {secondRow.map((cat) => <CategoryTile key={cat} cat={cat} onSelect={onSelect} />)}
+            {secondRow.map((cat) => <CategoryTile key={cat} cat={cat} onSelect={onSelect} walletCards={walletCards} />)}
           </div>
         )}
       </div>
@@ -172,8 +178,8 @@ function ExploreByCategory({ onSelect }: { onSelect: (cat: string) => void }) {
   );
 }
 
-function CategoryTile({ cat, onSelect }: { cat: string; onSelect: (cat: string) => void }) {
-  const rate = getBestRateForCategory(cat);
+function CategoryTile({ cat, onSelect, walletCards }: { cat: string; onSelect: (cat: string) => void; walletCards: UserCard[] }) {
+  const rate = getBestRateForCategory(cat, walletCards);
   return (
     <button
       type="button"
@@ -544,7 +550,7 @@ const eligibleCards = useMemo(
         ) : (
           <div className="flex flex-col gap-8">
             {/* Explore by category — always shown */}
-            <ExploreByCategory onSelect={setManualCategory} />
+            <ExploreByCategory onSelect={setManualCategory} walletCards={cards} />
 
             {/* Your Cards — shown when wallet has cards */}
             {cards.length > 0 ? (
