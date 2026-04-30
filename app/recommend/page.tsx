@@ -12,7 +12,6 @@ import { KNOWN_CATEGORIES, resolveMerchantToCategory, suggestMerchants } from "@
 import { recommendBestCards } from "@/lib/recommendation";
 import { useCardsStore } from "@/store/useCardsStore";
 
-const POPULAR_MERCHANTS = ["Starbucks", "Amazon", "Delta", "Shell", "Uber"];
 
 function capitalize(s: string): string {
   return s
@@ -197,7 +196,6 @@ export default function RecommendPage() {
   const hydrated = useCardsStore((s) => s.hydrated);
   const pointValuationPerPoint = useCardsStore((s) => s.pointValuationPerPoint);
   const rewardPref = useCardsStore((s) => s.rewardPref);
-  const setRewardPref = useCardsStore((s) => s.setRewardPref);
   const searchParams = useSearchParams();
 
   const [merchant, setMerchant] = useState("");
@@ -244,7 +242,6 @@ const eligibleCards = useMemo(
   }, []);
 
   function commitSearch(key: string) {
-    if (cards.length === 0) { setShowNoCardsModal(true); return; }
     setMerchant(key);
     setSearchedMerchant(key);
     setShowSuggestions(false);
@@ -252,27 +249,45 @@ const eligibleCards = useMemo(
     if (category) setManualCategory(category);
   }
 
-  // alias used by popular-search chips
   const selectSuggestion = commitSearch;
-  const selectMerchant = commitSearch;
 
   const resolvedFromMerchant = useMemo(
     () => resolveMerchantToCategory(searchedMerchant),
     [searchedMerchant]
   );
 
+  // When wallet is empty, fall back to the full catalog so we can still show
+  // the best available card (with a prompt to add personal cards).
+  const catalogAsUserCards = useMemo(() =>
+    cards.length === 0
+      ? getCatalog().map((c) => ({
+          id: c.id,
+          card_name: c.card_name,
+          issuer: c.issuer,
+          network: c.network,
+          reward_type: c.reward_type,
+          annual_fee: c.annual_fee,
+          point_value: c.point_value,
+          reward_rules: c.reward_rules,
+        }))
+      : [],
+    [cards.length]
+  );
+
   const result = useMemo(() => {
     const category = (manualCategory || resolvedFromMerchant.category || "").trim() || null;
-    if (!category || eligibleCards.length === 0) return null;
+    if (!category) return null;
+    const cardsToUse = eligibleCards.length > 0 ? eligibleCards : catalogAsUserCards;
+    if (cardsToUse.length === 0) return null;
     const amount = Number.isFinite(spend) && spend > 0 ? spend : 100;
     return recommendBestCards(
-      eligibleCards,
+      cardsToUse,
       category,
       amount,
       pointValuationPerPoint,
       resolvedFromMerchant.matchedKey
     );
-  }, [resolvedFromMerchant, manualCategory, spend, eligibleCards, pointValuationPerPoint]);
+  }, [resolvedFromMerchant, manualCategory, spend, eligibleCards, catalogAsUserCards, pointValuationPerPoint]);
 
   const activeCategory = manualCategory || resolvedFromMerchant.category || "";
 
@@ -461,6 +476,26 @@ const eligibleCards = useMemo(
                 )}
               </div>
             </div>
+            {/* Banner when showing catalog cards instead of wallet cards */}
+            {cards.length === 0 && (
+              <div className="flex items-start gap-3 rounded-xl border border-amber-200 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/30 px-4 py-3">
+                <span className="text-lg shrink-0">💡</span>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-amber-900 dark:text-amber-100">
+                    Showing the best cards from our catalog
+                  </p>
+                  <p className="mt-0.5 text-xs text-amber-700 dark:text-amber-300">
+                    Add your own cards to get personalized recommendations based on what you actually carry.
+                  </p>
+                  <Link
+                    href="/wallet"
+                    className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-amber-800 dark:text-amber-200 hover:underline"
+                  >
+                    Add your cards →
+                  </Link>
+                </div>
+              </div>
+            )}
             <p className="text-xs text-slate-400 dark:text-slate-500">
               Rewards estimated on a <span className="font-semibold text-slate-600 dark:text-slate-300">${spend}</span> purchase.
             </p>
