@@ -166,7 +166,7 @@ function aggregate(txs: Transaction[], cards: UserCard[], pointVal: number): Agg
     if (!weekMap[tx.date]) weekMap[tx.date] = { label: lbl, earned: 0, missed: 0, potential: 0 };
     weekMap[tx.date].earned    += actualDollar;
     weekMap[tx.date].missed    += missed;
-    weekMap[wk].potential += bestDollar;
+    weekMap[tx.date].potential += bestDollar;
   }
 
   // Opportunities: categories with >0 missed, sorted by missed desc
