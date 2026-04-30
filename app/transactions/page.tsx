@@ -89,17 +89,23 @@ function AddTransactionForm({
   onSubmit,
   onCancel,
   error,
+  initialValues,
+  submitLabel = "Add Transaction",
 }: {
   cards: UserCard[];
   onSubmit: (v: TransactionFormValues) => void;
   onCancel: () => void;
   error: string | null;
+  initialValues?: TransactionFormValues;
+  submitLabel?: string;
 }) {
-  const [form, setForm] = useState<TransactionFormValues>({
-    merchant: "", amount: 0, date: today(), category: "dining",
-    card_id: cards[0]?.id ?? null, card_name: cards[0]?.card_name ?? null,
-    mcc_code: null, notes: null,
-  });
+  const [form, setForm] = useState<TransactionFormValues>(
+    initialValues ?? {
+      merchant: "", amount: 0, date: today(), category: "dining",
+      card_id: cards[0]?.id ?? null, card_name: cards[0]?.card_name ?? null,
+      mcc_code: null, notes: null,
+    }
+  );
 
   function set<K extends keyof TransactionFormValues>(key: K, value: TransactionFormValues[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -178,7 +184,7 @@ function AddTransactionForm({
       <div className="flex gap-2 pt-1">
         <button type="submit"
           className="flex-1 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
-          Add Transaction
+          {submitLabel}
         </button>
         <button type="button" onClick={onCancel}
           className="flex-1 rounded-xl border border-slate-200 dark:border-slate-700 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
@@ -194,11 +200,14 @@ function AddTransactionForm({
 function TransactionRow({
   tx,
   onDelete,
+  onEdit,
 }: {
   tx: TransactionWithRewards;
   onDelete: (id: string) => void;
+  onEdit: (tx: Transaction) => void;
 }) {
   const [expanded, setExpanded] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const isRefund = tx.amount < 0;
 
   const statusBadge = isRefund ? null : tx.actualReward === null ? null : tx.isOptimal ? (
@@ -369,14 +378,57 @@ function TransactionRow({
             <span>Added: {new Date(tx.created_at).toLocaleDateString()}</span>
           </div>
 
-          {/* Delete */}
-          <button
-            type="button"
-            onClick={() => { if (confirm("Delete this transaction?")) onDelete(tx.id); }}
-            className="self-start rounded-full border border-red-200 dark:border-red-800 px-4 py-1.5 text-xs font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
-          >
-            Delete transaction
-          </button>
+          {/* Edit + Delete */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => onEdit(tx)}
+              className="rounded-full border border-slate-200 dark:border-slate-700 px-4 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+            >
+              Edit
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowDeleteConfirm(true)}
+              className="rounded-full border border-red-200 dark:border-red-800 px-4 py-1.5 text-xs font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* ── Delete confirmation modal ── */}
+      {showDeleteConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={() => setShowDeleteConfirm(false)} />
+          <div className="relative w-full max-w-sm rounded-3xl bg-white dark:bg-slate-900 p-6 shadow-2xl">
+            <div className="mb-4 mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 dark:bg-red-950/40">
+              <svg className="h-6 w-6 text-red-500 dark:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+              </svg>
+            </div>
+            <h2 className="text-center text-base font-bold text-slate-900 dark:text-white">Delete transaction?</h2>
+            <p className="mt-2 text-center text-sm text-slate-500 dark:text-slate-400">
+              <span className="font-medium text-slate-700 dark:text-slate-200">{tx.merchant}</span> — {formatMoney(Math.abs(tx.amount))} on {formatDate(tx.date)} will be permanently deleted.
+            </p>
+            <div className="mt-5 flex flex-col gap-2">
+              <button
+                type="button"
+                onClick={() => { onDelete(tx.id); setShowDeleteConfirm(false); }}
+                className="w-full rounded-xl bg-red-600 py-2.5 text-sm font-semibold text-white hover:bg-red-700 transition-colors"
+              >
+                Yes, delete
+              </button>
+              <button
+                type="button"
+                onClick={() => setShowDeleteConfirm(false)}
+                className="w-full rounded-xl border border-slate-200 dark:border-slate-700 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
@@ -394,6 +446,7 @@ export default function TransactionsPage() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
+  const [editingTx, setEditingTx] = useState<Transaction | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
   const [banner, setBanner] = useState<string | null>(null);
 
@@ -469,6 +522,26 @@ export default function TransactionsPage() {
     const supabase = createClient();
     await supabase.from("user_transactions").delete().eq("id", id);
     setTransactions((prev) => prev.filter((t) => t.id !== id));
+  }
+
+  /* ── Edit / Update ── */
+  async function handleUpdate(values: TransactionFormValues) {
+    if (!editingTx) return;
+    setFormError(null);
+    if (!values.merchant.trim()) { setFormError("Merchant name is required."); return; }
+    if (!values.amount || values.amount === 0) { setFormError("Amount cannot be zero."); return; }
+    const supabase = createClient();
+    const { error } = await supabase
+      .from("user_transactions")
+      .update(values)
+      .eq("id", editingTx.id);
+    if (error) { setFormError(error.message); return; }
+    setTransactions((prev) =>
+      prev.map((t) => t.id === editingTx.id ? { ...t, ...values } : t)
+    );
+    setEditingTx(null);
+    setBanner("Transaction updated.");
+    setTimeout(() => setBanner(null), 3000);
   }
 
   const uniqueCardNames = [...new Set(transactions.map((t) => t.card_name).filter(Boolean) as string[])];
@@ -606,7 +679,12 @@ export default function TransactionsPage() {
       ) : (
         <div className="flex flex-col gap-2">
           {filtered.map((tx) => (
-            <TransactionRow key={tx.id} tx={tx} onDelete={handleDelete} />
+            <TransactionRow
+              key={tx.id}
+              tx={tx}
+              onDelete={handleDelete}
+              onEdit={(t) => { setFormError(null); setEditingTx(t); }}
+            />
           ))}
         </div>
       )}
@@ -619,6 +697,29 @@ export default function TransactionsPage() {
           onCancel={() => setModalOpen(false)}
           error={formError}
         />
+      </Modal>
+
+      {/* ── Edit transaction modal ── */}
+      <Modal open={!!editingTx} title="Edit Transaction" onClose={() => setEditingTx(null)}>
+        {editingTx && (
+          <AddTransactionForm
+            cards={cards}
+            onSubmit={handleUpdate}
+            onCancel={() => setEditingTx(null)}
+            error={formError}
+            submitLabel="Save changes"
+            initialValues={{
+              merchant: editingTx.merchant,
+              amount: editingTx.amount,
+              date: editingTx.date,
+              category: editingTx.category,
+              card_id: editingTx.card_id,
+              card_name: editingTx.card_name,
+              mcc_code: editingTx.mcc_code,
+              notes: editingTx.notes,
+            }}
+          />
+        )}
       </Modal>
     </div>
   );
