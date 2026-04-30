@@ -2,29 +2,16 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
+import {
+  ResponsiveContainer, PieChart, Pie, Cell, Tooltip,
+  BarChart, Bar, XAxis, YAxis, LineChart, Line,
+  CartesianGrid, Legend,
+} from "recharts";
 
 import { createClient } from "@/lib/supabase/client";
-import { recommendBestCards } from "@/lib/recommendation";
 import { useCardsStore } from "@/store/useCardsStore";
-import { KNOWN_CATEGORIES } from "@/lib/merchant";
 import type { Transaction } from "@/types/transaction";
 import type { UserCard } from "@/types/card";
-
-/* ─── lazy-load recharts (no SSR) ───────────────────────── */
-const ResponsiveContainer = dynamic(() => import("recharts").then((m) => m.ResponsiveContainer), { ssr: false });
-const PieChart            = dynamic(() => import("recharts").then((m) => m.PieChart),            { ssr: false });
-const Pie                 = dynamic(() => import("recharts").then((m) => m.Pie),                 { ssr: false });
-const Cell                = dynamic(() => import("recharts").then((m) => m.Cell),                { ssr: false });
-const Tooltip             = dynamic(() => import("recharts").then((m) => m.Tooltip),             { ssr: false });
-const BarChart            = dynamic(() => import("recharts").then((m) => m.BarChart),            { ssr: false });
-const Bar                 = dynamic(() => import("recharts").then((m) => m.Bar),                 { ssr: false });
-const XAxis               = dynamic(() => import("recharts").then((m) => m.XAxis),               { ssr: false });
-const YAxis               = dynamic(() => import("recharts").then((m) => m.YAxis),               { ssr: false });
-const LineChart           = dynamic(() => import("recharts").then((m) => m.LineChart),           { ssr: false });
-const Line                = dynamic(() => import("recharts").then((m) => m.Line),                { ssr: false });
-const CartesianGrid       = dynamic(() => import("recharts").then((m) => m.CartesianGrid),       { ssr: false });
-const Legend              = dynamic(() => import("recharts").then((m) => m.Legend),              { ssr: false });
 
 /* ─── constants ─────────────────────────────────────────── */
 
@@ -243,6 +230,7 @@ export default function InsightsPage() {
 
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading]           = useState(true);
+  const [mounted, setMounted]           = useState(false);
   const [period, setPeriod]             = useState<PeriodValue>("this_month");
   const [customFrom, setCustomFrom]     = useState("");
   const [customTo, setCustomTo]         = useState("");
@@ -258,6 +246,7 @@ export default function InsightsPage() {
   }, []);
 
   useEffect(() => { load(); }, [load]);
+  useEffect(() => { setMounted(true); }, []);
 
   /* ── filter by period ── */
   const { from, to } = useMemo(() => {
@@ -390,7 +379,7 @@ export default function InsightsPage() {
               {agg.byCategory.length === 0 ? (
                 <p className="text-xs text-slate-400">No data.</p>
               ) : (
-                <div className="h-52">
+                {mounted && <div className="h-52">
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                       <Pie data={agg.byCategory.map(c => ({ name: `${CATEGORY_ICONS[c.category] ?? ""} ${c.category}`, value: +c.spend.toFixed(2) }))}
@@ -401,8 +390,7 @@ export default function InsightsPage() {
                       <Tooltip formatter={(v: number) => fmt(v)} />
                     </PieChart>
                   </ResponsiveContainer>
-                </div>
-              )}
+                </div>}
               <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
                 {agg.byCategory.slice(0, 6).map((c, i) => (
                   <span key={c.category} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-300">
@@ -418,7 +406,7 @@ export default function InsightsPage() {
             <Section title="Earned vs missed by category">
               {agg.byCategory.length === 0 ? (
                 <p className="text-xs text-slate-400">No data.</p>
-              ) : (
+              ) : mounted ? (
                 <div className="h-52">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={agg.byCategory.slice(0, 6).map(c => ({
@@ -436,13 +424,13 @@ export default function InsightsPage() {
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
-              )}
+              ) : null}
             </Section>
 
             {/* Rewards trend — line */}
             {agg.trend.length > 1 && (
               <Section title="Rewards trend">
-                <div className="h-52">
+                {mounted && <div className="h-52">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={agg.trend} margin={{ top: 0, right: 8, left: -20, bottom: 0 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
@@ -455,7 +443,7 @@ export default function InsightsPage() {
                       <Line type="monotone" dataKey="potential" stroke="#6366f1" strokeWidth={2} dot={false} strokeDasharray="4 2" name="Potential" />
                     </LineChart>
                   </ResponsiveContainer>
-                </div>
+                </div>}
               </Section>
             )}
 
