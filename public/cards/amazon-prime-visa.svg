@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="400" height="250">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#232f3e"/>
+      <stop offset="100%" stop-color="#37475a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" rx="20" fill="url(#g)"/>
+  <rect x="30" y="82" width="50" height="38" rx="6" fill="#d4af37" opacity="0.9"/>
+  <line x1="30" y1="101" x2="80" y2="101" stroke="#b89020" stroke-width="1.5"/>
+  <line x1="55" y1="82" x2="55" y2="120" stroke="#b89020" stroke-width="1.5"/>
+  <text x="30" y="168" font-family="monospace" font-size="15" fill="white" opacity="0.6" letter-spacing="3">•••• •••• •••• ••••</text>
+  <text x="30" y="30" font-family="system-ui,sans-serif" font-size="14" fill="#ff9900" font-weight="700" opacity="0.95">amazon prime</text>
+  <text x="30" y="215" font-family="system-ui,sans-serif" font-size="13" fill="white" font-weight="500" opacity="0.9">Prime Visa</text>
+  <text x="370" y="225" font-family="serif" font-size="20" fill="white" font-style="italic" text-anchor="end" font-weight="700" opacity="0.85">VISA</text>
+</svg>

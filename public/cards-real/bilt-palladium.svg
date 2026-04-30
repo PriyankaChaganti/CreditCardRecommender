@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="400" height="250">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c0c0c0"/>
+      <stop offset="30%" stop-color="#e8e8e8"/>
+      <stop offset="60%" stop-color="#b8b8b8"/>
+      <stop offset="100%" stop-color="#d0d0d0"/>
+    </linearGradient>
+    <linearGradient id="brush" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.2)"/>
+    </linearGradient>
+    <pattern id="lines" width="3" height="250" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="250" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="250" rx="20" fill="url(#bg)"/>
+  <rect width="400" height="250" rx="20" fill="url(#lines)"/>
+  <rect width="400" height="250" rx="20" fill="url(#brush)"/>
+  <text x="28" y="38" font-family="system-ui,sans-serif" font-size="18" fill="rgba(0,0,0,0.7)" font-weight="800" letter-spacing="2">BILT</text>
+  <rect x="28" y="88" width="48" height="36" rx="5" fill="#c8a84b" opacity="0.8"/>
+  <line x1="28" y1="106" x2="76" y2="106" stroke="#a08030" stroke-width="1.2"/>
+  <line x1="52" y1="88" x2="52" y2="124" stroke="#a08030" stroke-width="1.2"/>
+  <text x="28" y="172" font-family="monospace" font-size="14" fill="rgba(0,0,0,0.4)" letter-spacing="3">•••• •••• •••• ••••</text>
+  <text x="28" y="218" font-family="system-ui,sans-serif" font-size="12" fill="rgba(0,0,0,0.6)">Bilt Palladium Card</text>
+  <circle cx="358" cy="218" r="12" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/>
+  <circle cx="372" cy="218" r="12" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/>
+</svg>

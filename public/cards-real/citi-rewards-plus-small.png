@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+    <title>Page not found</title>
+    
+    
+<script defer="defer" type="text/javascript" src="https://rum.hlx.page/.rum/@adobe/helix-rum-js@%5E2/dist/micro.js" data-routing=""env=prod,tier=publish,ams=Citibank N.A"" integrity="" crossorigin="anonymous" data-enhancer-version="" data-enhancer-hash="" data-post-path=""></script>
+<link rel="stylesheet" href="/etc.clientlibs/citibank-cms/clientlibs/clientlib-base.min.7866338aac592e597de130e56bd1ae90.css" type="text/css">
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="refresh" content="5;url=http://www.citi.com/credit-cards/citi.action"/>
+    
+    
+    
+
+    
+    
+    
+    
+
+</head>
+	
+<body class="errorPage">
+    <div id="wrapper">
+        <div id="main">
+            <div id="header">
+                <a href="http://www.citi.com/credit-cards/citi.action"><img alt="Citibank Online" src="/etc.clientlibs/citibank-cms/clientlibs/clientlib-base/resources/images/citi44a.gif" width="61" height="38" border="0"/></a>
+            </div>
+            <div id="content">
+                <div class="RTE text">
+    
+
+
+   <div class="citi-rte"><p><span class="pageNotFound">Error</span><br />
+</p>
+<table width="89%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td class="pageHeader"> </td>
+</tr></tbody><tbody><tr><td> </td>
+</tr><tr><td><table>
+<tbody><tr><td><img src="https://citicards.citi.com/err/images/alert_logo.gif"/></td>
+<td><span class="pageNotFound">Page Not Found 404</span></td>
+</tr></tbody></table>
+</td>
+</tr><tr><td><br />
+<span class="subTitle">We’re sorry, but the page could not be found. The link may be outdated, you may have entered the address (URL) incorrectly, or the offer may have expired.</span><br />
+<br />
+<span class="subTitle">If you are not automatically redirected in 5 seconds, please visit <a href="http://www.citi.com/credit-cards/citi.action">CitiCards.com</a></span></td>
+</tr><tr></tr></tbody></table>
+</div>
+
+
+</div>
+
+            </div>
+            <div id="footer" class="footerTextCss">
+                <a href="http://citi.bridgetrack.com/usc/_redir.htm?BTData=Jn*.B.B4f.J.BU1.KN*Y.Zh9.IwR.dVi.Bj.D.Ep"><img alt="Citibank Online" src="/etc.clientlibs/citibank-cms/clientlibs/clientlib-base/resources/images/footlogo.gif" width="21" height="15" border="0"/></a>
+                <div id="terms">
+                    <a href="https://online.citi.com/US/JRS/portal/template.do?ID=Privacy" target="_blank" rel="noopener noreferrer">
+                        <span>Privacy</span></a><br/>
+                    <a href="http://www.citi.com/domain/disclaim/" target="_blank" rel="noopener noreferrer"><span>Terms &amp; Conditions</span></a><br/>
+
+               <div>Copyright © 2026 Citigroup Inc</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img alt="" src="http://citi.bridgetrack.com/event/?type=-1&amp;BTData=OzV.B.B4f.J.BU1.KN*g.Zh7.IwR.dVi.Bj.D.Ep" width="1" height="1" border="0"/>
+
+
+</body>
+        
+</html>

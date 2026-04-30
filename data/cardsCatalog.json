@@ -1,0 +1,2666 @@
+[
+  {
+    "id": "chase-sapphire-preferred",
+    "issuer": "Chase",
+    "card_name": "Chase Sapphire Preferred",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.0125,
+    "image": "/cards-real/chase-sapphire-preferred.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "online",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "chase-sapphire-reserve",
+    "issuer": "Chase",
+    "card_name": "Chase Sapphire Reserve",
+    "network": "Visa",
+    "annual_fee": 550,
+    "reward_type": "points",
+    "point_value": 0.015,
+    "image": "/cards-real/chase-sapphire-reserve.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "chase-freedom-unlimited",
+    "issuer": "Chase",
+    "card_name": "Chase Freedom Unlimited",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/chase-freedom-unlimited.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 5
+      },
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "amex-platinum",
+    "issuer": "American Express",
+    "card_name": "Amex Platinum",
+    "network": "Amex",
+    "annual_fee": 695,
+    "reward_type": "points",
+    "point_value": 0.02,
+    "image": "/cards-real/amex-platinum.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 5
+      },
+      {
+        "category": "dining",
+        "multiplier": 1
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "amex-gold",
+    "issuer": "American Express",
+    "card_name": "Amex Gold",
+    "network": "Amex",
+    "annual_fee": 250,
+    "reward_type": "points",
+    "point_value": 0.02,
+    "image": "/cards-real/amex-gold.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 4
+      },
+      {
+        "category": "groceries",
+        "multiplier": 4
+      },
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "blue-cash-preferred",
+    "issuer": "American Express",
+    "card_name": "Blue Cash Preferred",
+    "network": "Amex",
+    "annual_fee": 95,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/blue-cash-preferred.png",
+    "reward_rules": [
+      {
+        "category": "groceries",
+        "multiplier": 6
+      },
+      {
+        "category": "entertainment",
+        "multiplier": 6
+      },
+      {
+        "category": "gas",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "blue-cash-everyday",
+    "issuer": "American Express",
+    "card_name": "Blue Cash Everyday",
+    "network": "Amex",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/blue-cash-everyday.png",
+    "reward_rules": [
+      {
+        "category": "groceries",
+        "multiplier": 3
+      },
+      {
+        "category": "online",
+        "multiplier": 3
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "citi-double-cash",
+    "issuer": "Citi",
+    "card_name": "Citi Double Cash",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/citi-double-cash.webp",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "citi-premier",
+    "issuer": "Citi",
+    "card_name": "Citi Premier",
+    "network": "Mastercard",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/citi-premier.webp",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "groceries",
+        "multiplier": 3
+      },
+      {
+        "category": "gas",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "venture-x",
+    "issuer": "Capital One",
+    "card_name": "Venture X",
+    "network": "Visa",
+    "annual_fee": 395,
+    "reward_type": "miles",
+    "point_value": 0.01,
+    "image": "/cards-real/venture-x.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 10
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "savor-cash-rewards",
+    "issuer": "Capital One",
+    "card_name": "Savor Cash Rewards",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/savor-cash-rewards.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "entertainment",
+        "multiplier": 3
+      },
+      {
+        "category": "groceries",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "active-cash",
+    "issuer": "Wells Fargo",
+    "card_name": "Active Cash",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/active-cash.webp",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "customized-cash-rewards",
+    "issuer": "Bank of America",
+    "card_name": "Customized Cash Rewards",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/customized-cash-rewards.png",
+    "reward_rules": [
+      {
+        "category": "gas",
+        "multiplier": 3
+      },
+      {
+        "category": "online",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "travel",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "altitude-go",
+    "issuer": "US Bank",
+    "card_name": "Altitude Go",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/altitude-go.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 4
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "chase-freedom-flex",
+    "issuer": "Chase",
+    "card_name": "Chase Freedom Flex",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/chase-freedom-flex.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 5
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "discover-it",
+    "issuer": "Discover",
+    "card_name": "Discover it Cash Back",
+    "network": "Discover",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/discover-it.png",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "amazon-prime-visa",
+    "issuer": "Chase",
+    "card_name": "Amazon Prime Visa",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/amazon-prime-visa.png",
+    "reward_rules": [
+      {
+        "category": "online",
+        "multiplier": 5
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "apple-card",
+    "issuer": "Goldman Sachs",
+    "card_name": "Apple Card",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/apple-card.png",
+    "reward_rules": [
+      {
+        "category": "online",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "capital-one-quicksilver",
+    "issuer": "Capital One",
+    "card_name": "Capital One Quicksilver",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/capital-one-quicksilver.png",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "costco-anywhere-visa",
+    "issuer": "Citi",
+    "card_name": "Costco Anywhere Visa",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/costco-anywhere-visa.webp",
+    "reward_rules": [
+      {
+        "category": "gas",
+        "multiplier": 4
+      },
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "hilton-honors-amex",
+    "issuer": "American Express",
+    "card_name": "Hilton Honors Amex",
+    "network": "Amex",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.005,
+    "image": "/cards-real/hilton-honors-amex.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 7
+      },
+      {
+        "category": "dining",
+        "multiplier": 5
+      },
+      {
+        "category": "groceries",
+        "multiplier": 5
+      },
+      {
+        "category": "gas",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 3
+      }
+    ]
+  },
+  {
+    "id": "delta-skymiles-gold",
+    "issuer": "American Express",
+    "card_name": "Delta SkyMiles Gold",
+    "network": "Amex",
+    "annual_fee": 150,
+    "reward_type": "miles",
+    "point_value": 0.012,
+    "image": "/cards-real/delta-skymiles-gold.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 2
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "united-explorer",
+    "issuer": "Chase",
+    "card_name": "United Explorer",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "miles",
+    "point_value": 0.013,
+    "image": "/cards-real/united-explorer.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 2
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "southwest-rapid-rewards-plus",
+    "issuer": "Chase",
+    "card_name": "Southwest Rapid Rewards Plus",
+    "network": "Visa",
+    "annual_fee": 69,
+    "reward_type": "points",
+    "point_value": 0.015,
+    "image": "/cards-real/southwest-rapid-rewards-plus.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 2
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "bofa-premium-rewards",
+    "issuer": "Bank of America",
+    "card_name": "Premium Rewards",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/bofa-premium-rewards.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 2
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "bilt-blue",
+    "card_name": "Bilt Blue Card",
+    "issuer": "Bilt Rewards",
+    "network": "Mastercard",
+    "reward_type": "points",
+    "annual_fee": 0,
+    "point_value": 0.015,
+    "image": "/cards-real/bilt-blue.png",
+    "reward_rules": [
+      {
+        "category": "rent",
+        "multiplier": 1
+      },
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "fitness",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "bilt-obsidian",
+    "card_name": "Bilt Obsidian Card",
+    "issuer": "Bilt Rewards",
+    "network": "Mastercard",
+    "reward_type": "points",
+    "annual_fee": 95,
+    "point_value": 0.015,
+    "image": "/cards-real/bilt-obsidian.png",
+    "reward_rules": [
+      {
+        "category": "rent",
+        "multiplier": 1
+      },
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "grocery",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 2
+      },
+      {
+        "category": "fitness",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "bilt-palladium",
+    "card_name": "Bilt Palladium Card",
+    "issuer": "Bilt Rewards",
+    "network": "Mastercard",
+    "reward_type": "points",
+    "annual_fee": 495,
+    "point_value": 0.015,
+    "image": "/cards-real/bilt-palladium.png",
+    "reward_rules": [
+      {
+        "category": "rent",
+        "multiplier": 2
+      },
+      {
+        "category": "dining",
+        "multiplier": 4
+      },
+      {
+        "category": "travel",
+        "multiplier": 2
+      },
+      {
+        "category": "fitness",
+        "multiplier": 4
+      },
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "amex-green",
+    "issuer": "American Express",
+    "card_name": "Amex Green Card",
+    "network": "Amex",
+    "annual_fee": 150,
+    "reward_type": "points",
+    "point_value": 0.02,
+    "image": "/cards-real/amex-green.png",
+    "reward_rules": [
+      {
+        "category": "transit",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "amex-everyday",
+    "issuer": "American Express",
+    "card_name": "Amex EveryDay",
+    "network": "Amex",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.02,
+    "image": "/cards-real/amex-everyday.png",
+    "reward_rules": [
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "amex-everyday-preferred",
+    "issuer": "American Express",
+    "card_name": "Amex EveryDay Preferred",
+    "network": "Amex",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.02,
+    "image": "/cards-real/amex-everyday-preferred.png",
+    "reward_rules": [
+      {
+        "category": "groceries",
+        "multiplier": 3
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "hilton-surpass",
+    "issuer": "American Express",
+    "card_name": "Hilton Honors Surpass",
+    "network": "Amex",
+    "annual_fee": 150,
+    "reward_type": "points",
+    "point_value": 0.005,
+    "image": "/cards-real/hilton-surpass.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 12
+      },
+      {
+        "category": "dining",
+        "multiplier": 6
+      },
+      {
+        "category": "groceries",
+        "multiplier": 6
+      },
+      {
+        "category": "gas",
+        "multiplier": 6
+      },
+      {
+        "category": "other",
+        "multiplier": 3
+      }
+    ]
+  },
+  {
+    "id": "hilton-aspire",
+    "issuer": "American Express",
+    "card_name": "Hilton Honors Aspire",
+    "network": "Amex",
+    "annual_fee": 550,
+    "reward_type": "points",
+    "point_value": 0.005,
+    "image": "/cards-real/hilton-aspire.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 14
+      },
+      {
+        "category": "dining",
+        "multiplier": 7
+      },
+      {
+        "category": "flights",
+        "multiplier": 7
+      },
+      {
+        "category": "other",
+        "multiplier": 3
+      }
+    ]
+  },
+  {
+    "id": "delta-platinum-amex",
+    "issuer": "American Express",
+    "card_name": "Delta SkyMiles Platinum",
+    "network": "Amex",
+    "annual_fee": 350,
+    "reward_type": "miles",
+    "point_value": 0.012,
+    "image": "/cards-real/delta-platinum-amex.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "hotels",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "delta-reserve-amex",
+    "issuer": "American Express",
+    "card_name": "Delta SkyMiles Reserve",
+    "network": "Amex",
+    "annual_fee": 650,
+    "reward_type": "miles",
+    "point_value": 0.012,
+    "image": "/cards-real/delta-reserve-amex.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "marriott-bonvoy-brilliant",
+    "issuer": "American Express",
+    "card_name": "Marriott Bonvoy Brilliant",
+    "network": "Amex",
+    "annual_fee": 650,
+    "reward_type": "points",
+    "point_value": 0.008,
+    "image": "/cards-real/marriott-bonvoy-brilliant.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 6
+      },
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "marriott-bonvoy-bevy",
+    "issuer": "American Express",
+    "card_name": "Marriott Bonvoy Bevy",
+    "network": "Amex",
+    "annual_fee": 250,
+    "reward_type": "points",
+    "point_value": 0.008,
+    "image": "/cards-real/marriott-bonvoy-bevy.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 6
+      },
+      {
+        "category": "dining",
+        "multiplier": 4
+      },
+      {
+        "category": "groceries",
+        "multiplier": 4
+      },
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "amex-business-gold",
+    "issuer": "American Express",
+    "card_name": "Business Gold Card",
+    "network": "Amex",
+    "annual_fee": 375,
+    "reward_type": "points",
+    "point_value": 0.02,
+    "image": "/cards-real/amex-business-gold.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 4
+      },
+      {
+        "category": "travel",
+        "multiplier": 4
+      },
+      {
+        "category": "gas",
+        "multiplier": 4
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "bofa-unlimited-cash",
+    "issuer": "Bank of America",
+    "card_name": "Unlimited Cash Rewards",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/bofa-unlimited-cash.png",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "bofa-premium-rewards-elite",
+    "issuer": "Bank of America",
+    "card_name": "Premium Rewards Elite",
+    "network": "Visa",
+    "annual_fee": 550,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/bofa-premium-rewards-elite.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 2
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "bofa-travel-rewards",
+    "issuer": "Bank of America",
+    "card_name": "Travel Rewards",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/bofa-travel-rewards.png",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "alaska-airlines-visa",
+    "issuer": "Bank of America",
+    "card_name": "Alaska Airlines Visa",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "miles",
+    "point_value": 0.018,
+    "image": "/cards-real/alaska-airlines-visa.png",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "jetblue-plus",
+    "issuer": "Barclays",
+    "card_name": "JetBlue Plus Card",
+    "network": "Mastercard",
+    "annual_fee": 99,
+    "reward_type": "points",
+    "point_value": 0.013,
+    "image": "/cards-real/jetblue-plus.svg",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 6
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "jetblue-card",
+    "issuer": "Barclays",
+    "card_name": "JetBlue Card",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.013,
+    "image": "/cards-real/jetblue-card.svg",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "hawaiian-airlines-mastercard",
+    "issuer": "Barclays",
+    "card_name": "Hawaiian Airlines Mastercard",
+    "network": "Mastercard",
+    "annual_fee": 99,
+    "reward_type": "miles",
+    "point_value": 0.011,
+    "image": "/cards-real/hawaiian-airlines-mastercard.svg",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "wyndham-rewards-earner",
+    "issuer": "Barclays",
+    "card_name": "Wyndham Rewards Earner",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.009,
+    "image": "/cards-real/wyndham-rewards-earner.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 5
+      },
+      {
+        "category": "gas",
+        "multiplier": 5
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "wyndham-rewards-earner-plus",
+    "issuer": "Barclays",
+    "card_name": "Wyndham Rewards Earner Plus",
+    "network": "Visa",
+    "annual_fee": 75,
+    "reward_type": "points",
+    "point_value": 0.009,
+    "image": "/cards-real/wyndham-rewards-earner-plus.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 6
+      },
+      {
+        "category": "gas",
+        "multiplier": 6
+      },
+      {
+        "category": "dining",
+        "multiplier": 4
+      },
+      {
+        "category": "groceries",
+        "multiplier": 4
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "aadvantage-aviator-red",
+    "issuer": "Barclays",
+    "card_name": "AAdvantage Aviator Red",
+    "network": "Mastercard",
+    "annual_fee": 99,
+    "reward_type": "miles",
+    "point_value": 0.017,
+    "image": "/cards-real/aadvantage-aviator-red.svg",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "aadvantage-aviator-silver",
+    "issuer": "Barclays",
+    "card_name": "AAdvantage Aviator Silver",
+    "network": "Mastercard",
+    "annual_fee": 199,
+    "reward_type": "miles",
+    "point_value": 0.017,
+    "image": "/cards-real/aadvantage-aviator-silver.svg",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 3
+      },
+      {
+        "category": "hotels",
+        "multiplier": 3
+      },
+      {
+        "category": "car-rentals",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "aaa-daily-advantage",
+    "issuer": "Bread Financial",
+    "card_name": "AAA Daily Advantage",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/aaa-daily-advantage.svg",
+    "reward_rules": [
+      {
+        "category": "groceries",
+        "multiplier": 5
+      },
+      {
+        "category": "gas",
+        "multiplier": 3
+      },
+      {
+        "category": "pharmacy",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "aaa-travel-advantage",
+    "issuer": "Bread Financial",
+    "card_name": "AAA Travel Advantage",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/aaa-travel-advantage.svg",
+    "reward_rules": [
+      {
+        "category": "gas",
+        "multiplier": 5
+      },
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "bjs-perks-elite",
+    "issuer": "Bread Financial",
+    "card_name": "BJ's Perks Elite Mastercard",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/bjs-perks-elite.svg",
+    "reward_rules": [
+      {
+        "category": "wholesale",
+        "multiplier": 5
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "sephora-visa",
+    "issuer": "Bread Financial",
+    "card_name": "Sephora Visa Card",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/sephora-visa.jpg",
+    "reward_rules": [
+      {
+        "category": "beauty",
+        "multiplier": 4
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "ulta-beauty-rewards",
+    "issuer": "Bread Financial",
+    "card_name": "Ulta Beauty Rewards",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/ulta-beauty-rewards.svg",
+    "reward_rules": [
+      {
+        "category": "beauty",
+        "multiplier": 5
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "capital-one-venture",
+    "issuer": "Capital One",
+    "card_name": "Capital One Venture",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "miles",
+    "point_value": 0.01,
+    "image": "/cards-real/capital-one-venture.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 5
+      },
+      {
+        "category": "car-rentals",
+        "multiplier": 5
+      },
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "capital-one-ventureone",
+    "issuer": "Capital One",
+    "card_name": "Capital One VentureOne",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "miles",
+    "point_value": 0.01,
+    "image": "/cards-real/capital-one-ventureone.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 5
+      },
+      {
+        "category": "car-rentals",
+        "multiplier": 5
+      },
+      {
+        "category": "other",
+        "multiplier": 1.25
+      }
+    ]
+  },
+  {
+    "id": "capital-one-savorone",
+    "issuer": "Capital One",
+    "card_name": "Capital One SavorOne",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/capital-one-savorone.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "entertainment",
+        "multiplier": 3
+      },
+      {
+        "category": "groceries",
+        "multiplier": 3
+      },
+      {
+        "category": "streaming",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "capital-one-quicksilverone",
+    "issuer": "Capital One",
+    "card_name": "Capital One QuicksilverOne",
+    "network": "Mastercard",
+    "annual_fee": 39,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/capital-one-quicksilverone.png",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "freedom-rise",
+    "issuer": "Chase",
+    "card_name": "Freedom Rise",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/freedom-rise.png",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "amazon-visa",
+    "issuer": "Chase",
+    "card_name": "Amazon Visa",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/amazon-visa.png",
+    "reward_rules": [
+      {
+        "category": "online",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "pharmacy",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "southwest-premier",
+    "issuer": "Chase",
+    "card_name": "Southwest Rapid Rewards Premier",
+    "network": "Visa",
+    "annual_fee": 99,
+    "reward_type": "points",
+    "point_value": 0.015,
+    "image": "/cards-real/southwest-premier.png",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "hotels",
+        "multiplier": 2
+      },
+      {
+        "category": "transit",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "southwest-priority",
+    "issuer": "Chase",
+    "card_name": "Southwest Rapid Rewards Priority",
+    "network": "Visa",
+    "annual_fee": 149,
+    "reward_type": "points",
+    "point_value": 0.015,
+    "image": "/cards-real/southwest-priority.png",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "hotels",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "united-quest",
+    "issuer": "Chase",
+    "card_name": "United Quest Card",
+    "network": "Visa",
+    "annual_fee": 250,
+    "reward_type": "miles",
+    "point_value": 0.012,
+    "image": "/cards-real/united-quest.png",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "hotels",
+        "multiplier": 2
+      },
+      {
+        "category": "streaming",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "united-club-infinite",
+    "issuer": "Chase",
+    "card_name": "United Club Infinite",
+    "network": "Visa",
+    "annual_fee": 525,
+    "reward_type": "miles",
+    "point_value": 0.012,
+    "image": "/cards-real/united-club-infinite.png",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 4
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "hotels",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "world-of-hyatt",
+    "issuer": "Chase",
+    "card_name": "World of Hyatt Card",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.017,
+    "image": "/cards-real/world-of-hyatt.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 4
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "transit",
+        "multiplier": 2
+      },
+      {
+        "category": "fitness",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "marriott-bonvoy-boundless",
+    "issuer": "Chase",
+    "card_name": "Marriott Bonvoy Boundless",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.008,
+    "image": "/cards-real/marriott-bonvoy-boundless.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 6
+      },
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "groceries",
+        "multiplier": 3
+      },
+      {
+        "category": "gas",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "marriott-bonvoy-bold",
+    "issuer": "Chase",
+    "card_name": "Marriott Bonvoy Bold",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.008,
+    "image": "/cards-real/marriott-bonvoy-bold.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "ink-business-preferred",
+    "issuer": "Chase",
+    "card_name": "Ink Business Preferred",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.02,
+    "image": "/cards-real/ink-business-preferred.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "shipping",
+        "multiplier": 3
+      },
+      {
+        "category": "internet",
+        "multiplier": 3
+      },
+      {
+        "category": "phone",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "ink-business-cash",
+    "issuer": "Chase",
+    "card_name": "Ink Business Cash",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/ink-business-cash.png",
+    "reward_rules": [
+      {
+        "category": "office",
+        "multiplier": 5
+      },
+      {
+        "category": "internet",
+        "multiplier": 5
+      },
+      {
+        "category": "phone",
+        "multiplier": 5
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "ink-business-unlimited",
+    "issuer": "Chase",
+    "card_name": "Ink Business Unlimited",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/ink-business-unlimited.png",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "citi-rewards-plus",
+    "issuer": "Citi",
+    "card_name": "Citi Rewards+",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/citi-rewards-plus.svg",
+    "reward_rules": [
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "citi-custom-cash",
+    "issuer": "Citi",
+    "card_name": "Citi Custom Cash",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/citi-custom-cash.webp",
+    "reward_rules": [
+      {
+        "category": "top-category",
+        "multiplier": 5
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "citi-aadvantage-platinum",
+    "issuer": "Citi",
+    "card_name": "Citi AAdvantage Platinum Select",
+    "network": "Mastercard",
+    "annual_fee": 99,
+    "reward_type": "miles",
+    "point_value": 0.017,
+    "image": "/cards-real/citi-aadvantage-platinum.webp",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 2
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "citi-aadvantage-executive",
+    "issuer": "Citi",
+    "card_name": "Citi AAdvantage Executive",
+    "network": "Mastercard",
+    "annual_fee": 595,
+    "reward_type": "miles",
+    "point_value": 0.017,
+    "image": "/cards-real/citi-aadvantage-executive.webp",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 4
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "discover-it-chrome",
+    "issuer": "Discover",
+    "card_name": "Discover it Chrome",
+    "network": "Discover",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/discover-it-chrome.webp",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "discover-it-miles",
+    "issuer": "Discover",
+    "card_name": "Discover it Miles",
+    "network": "Discover",
+    "annual_fee": 0,
+    "reward_type": "miles",
+    "point_value": 0.01,
+    "image": "/cards-real/discover-it-miles.webp",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "discover-it-student",
+    "issuer": "Discover",
+    "card_name": "Discover it Student Cash Back",
+    "network": "Discover",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/discover-it-student.webp",
+    "reward_rules": [
+      {
+        "category": "rotating",
+        "multiplier": 5
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "discover-it-secured",
+    "issuer": "Discover",
+    "card_name": "Discover it Secured",
+    "network": "Discover",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/discover-it-secured.webp",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "wells-fargo-autograph",
+    "issuer": "Wells Fargo",
+    "card_name": "Wells Fargo Autograph",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/wells-fargo-autograph.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "gas",
+        "multiplier": 3
+      },
+      {
+        "category": "transit",
+        "multiplier": 3
+      },
+      {
+        "category": "streaming",
+        "multiplier": 3
+      },
+      {
+        "category": "phone",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "wells-fargo-autograph-journey",
+    "issuer": "Wells Fargo",
+    "card_name": "Wells Fargo Autograph Journey",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/wells-fargo-autograph-journey.png",
+    "reward_rules": [
+      {
+        "category": "hotels",
+        "multiplier": 5
+      },
+      {
+        "category": "flights",
+        "multiplier": 4
+      },
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "us-bank-altitude-reserve",
+    "issuer": "US Bank",
+    "card_name": "US Bank Altitude Reserve",
+    "network": "Visa",
+    "annual_fee": 400,
+    "reward_type": "points",
+    "point_value": 0.015,
+    "image": "/cards-real/us-bank-altitude-reserve.png",
+    "reward_rules": [
+      {
+        "category": "mobile-pay",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "us-bank-altitude-connect",
+    "issuer": "US Bank",
+    "card_name": "US Bank Altitude Connect",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/us-bank-altitude-connect.png",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 4
+      },
+      {
+        "category": "gas",
+        "multiplier": 4
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "streaming",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "us-bank-cash-plus",
+    "issuer": "US Bank",
+    "card_name": "US Bank Cash+ Visa",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/us-bank-cash-plus.png",
+    "reward_rules": [
+      {
+        "category": "utilities",
+        "multiplier": 5
+      },
+      {
+        "category": "dining",
+        "multiplier": 5
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "us-bank-shopper-cash",
+    "issuer": "US Bank",
+    "card_name": "US Bank Shopper Cash Rewards",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/us-bank-shopper-cash.png",
+    "reward_rules": [
+      {
+        "category": "online",
+        "multiplier": 6
+      },
+      {
+        "category": "wholesale",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "amazon-store-card",
+    "issuer": "Synchrony",
+    "card_name": "Amazon Store Card",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/amazon-store-card.svg",
+    "reward_rules": [
+      {
+        "category": "online",
+        "multiplier": 5
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "lowes-advantage",
+    "issuer": "Synchrony",
+    "card_name": "Lowe's Advantage Card",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/lowes-advantage.svg",
+    "reward_rules": [
+      {
+        "category": "home-improvement",
+        "multiplier": 5
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "paypal-cashback",
+    "issuer": "Synchrony",
+    "card_name": "PayPal Cashback Mastercard",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/paypal-cashback.svg",
+    "reward_rules": [
+      {
+        "category": "online",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "sams-club-mastercard",
+    "issuer": "Synchrony",
+    "card_name": "Sam's Club Mastercard",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/sams-club-mastercard.svg",
+    "reward_rules": [
+      {
+        "category": "gas",
+        "multiplier": 5
+      },
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "verizon-visa",
+    "issuer": "Synchrony",
+    "card_name": "Verizon Visa Card",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/verizon-visa.svg",
+    "reward_rules": [
+      {
+        "category": "phone",
+        "multiplier": 4
+      },
+      {
+        "category": "groceries",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "gas",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "td-double-up",
+    "issuer": "TD Bank",
+    "card_name": "TD Double Up",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/td-double-up.png",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "td-cash",
+    "issuer": "TD Bank",
+    "card_name": "TD Cash Credit Card",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/td-cash.png",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "td-aeroplan-visa",
+    "issuer": "TD Bank",
+    "card_name": "TD Aeroplan Visa",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.015,
+    "image": "/cards-real/td-aeroplan-visa.png",
+    "reward_rules": [
+      {
+        "category": "flights",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 1.5
+      },
+      {
+        "category": "groceries",
+        "multiplier": 1.5
+      },
+      {
+        "category": "gas",
+        "multiplier": 1.5
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "pnc-cash-rewards",
+    "issuer": "PNC Bank",
+    "card_name": "PNC Cash Rewards",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/pnc-cash-rewards.svg",
+    "reward_rules": [
+      {
+        "category": "gas",
+        "multiplier": 4
+      },
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "pnc-points-visa",
+    "issuer": "PNC Bank",
+    "card_name": "PNC Points Visa",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/pnc-points-visa.svg",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 4
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "navy-federal-more-rewards",
+    "issuer": "Navy Federal",
+    "card_name": "More Rewards Card",
+    "network": "Amex",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/navy-federal-more-rewards.svg",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "groceries",
+        "multiplier": 3
+      },
+      {
+        "category": "gas",
+        "multiplier": 3
+      },
+      {
+        "category": "transit",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "navy-federal-cash-rewards",
+    "issuer": "Navy Federal",
+    "card_name": "Cash Rewards Card",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/navy-federal-cash-rewards.png",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 1.75
+      }
+    ]
+  },
+  {
+    "id": "navy-federal-flagship",
+    "issuer": "Navy Federal",
+    "card_name": "Flagship Rewards Card",
+    "network": "Visa",
+    "annual_fee": 49,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/navy-federal-flagship.svg",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "penfed-power-cash",
+    "issuer": "PenFed",
+    "card_name": "Power Cash Rewards Visa",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/penfed-power-cash.svg",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "penfed-pathfinder",
+    "issuer": "PenFed",
+    "card_name": "Pathfinder Rewards Card",
+    "network": "Visa",
+    "annual_fee": 95,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/penfed-pathfinder.svg",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 4
+      },
+      {
+        "category": "other",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "penfed-gold-visa",
+    "issuer": "PenFed",
+    "card_name": "PenFed Gold Visa",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/penfed-gold-visa.svg",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "fnbo-evergreen",
+    "issuer": "FNBO",
+    "card_name": "Evergreen Rewards Visa",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/fnbo-evergreen.svg",
+    "reward_rules": [
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  },
+  {
+    "id": "fnbo-getaway",
+    "issuer": "FNBO",
+    "card_name": "Getaway Credit Card",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/fnbo-getaway.svg",
+    "reward_rules": [
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "hotels",
+        "multiplier": 3
+      },
+      {
+        "category": "gas",
+        "multiplier": 3
+      },
+      {
+        "category": "dining",
+        "multiplier": 2
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "elan-max-cash",
+    "issuer": "Elan Financial",
+    "card_name": "Max Cash Preferred Card",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/elan-max-cash.svg",
+    "reward_rules": [
+      {
+        "category": "top-category",
+        "multiplier": 5
+      },
+      {
+        "category": "everyday",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "elan-everyday-rewards",
+    "issuer": "Elan Financial",
+    "card_name": "Everyday Rewards+",
+    "network": "Visa",
+    "annual_fee": 0,
+    "reward_type": "points",
+    "point_value": 0.01,
+    "image": "/cards-real/elan-everyday-rewards.svg",
+    "reward_rules": [
+      {
+        "category": "dining",
+        "multiplier": 3
+      },
+      {
+        "category": "travel",
+        "multiplier": 3
+      },
+      {
+        "category": "groceries",
+        "multiplier": 2
+      },
+      {
+        "category": "other",
+        "multiplier": 1
+      }
+    ]
+  },
+  {
+    "id": "sofi-credit-card",
+    "issuer": "SoFi",
+    "card_name": "SoFi Credit Card",
+    "network": "Mastercard",
+    "annual_fee": 0,
+    "reward_type": "cashback",
+    "point_value": 0.01,
+    "image": "/cards-real/sofi-credit-card.png",
+    "reward_rules": [
+      {
+        "category": "sofi-products",
+        "multiplier": 3
+      },
+      {
+        "category": "other",
+        "multiplier": 2
+      }
+    ]
+  }
+]

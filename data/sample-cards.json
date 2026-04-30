@@ -1,0 +1,39 @@
+[
+  {
+    "id": "sample-csp",
+    "card_name": "Chase Sapphire Preferred",
+    "issuer": "Chase",
+    "network": "Visa",
+    "reward_type": "points",
+    "annual_fee": 95,
+    "reward_rules": [
+      { "category": "dining", "multiplier": 3 },
+      { "category": "travel", "multiplier": 2 },
+      { "category": "online", "multiplier": 1 }
+    ]
+  },
+  {
+    "id": "sample-bce",
+    "card_name": "Blue Cash Everyday",
+    "issuer": "Amex",
+    "network": "Amex",
+    "reward_type": "cashback",
+    "annual_fee": 0,
+    "reward_rules": [
+      { "category": "groceries", "multiplier": 3 },
+      { "category": "gas", "multiplier": 2 },
+      { "category": "online", "multiplier": 1 }
+    ]
+  },
+  {
+    "id": "sample-citi-double",
+    "card_name": "Citi Double Cash",
+    "issuer": "Citi",
+    "network": "Mastercard",
+    "reward_type": "cashback",
+    "annual_fee": 0,
+    "reward_rules": [
+      { "category": "other", "multiplier": 2 }
+    ]
+  }
+]

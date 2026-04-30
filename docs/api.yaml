@@ -1,0 +1,229 @@
+openapi: 3.0.3
+info:
+  title: CardWise API
+  description: |
+    CardWise is a credit card recommendation system. Most data operations are
+    handled directly through the Supabase client SDK (auto-generated REST API).
+    This document covers the custom Next.js Route Handler endpoints.
+
+    ## Authentication
+    Authentication is managed by Supabase Auth. Session tokens are stored in
+    HttpOnly cookies set by Supabase SSR. All protected Supabase tables enforce
+    Row Level Security (RLS) so users can only access their own data.
+
+    ## Supabase Tables (via Supabase REST API)
+    The following tables are accessible through the Supabase auto-generated REST
+    API at `{SUPABASE_URL}/rest/v1/{table}`:
+
+    | Table | Access |
+    |---|---|
+    | `cards_catalog` | Public read — no auth required |
+    | `merchant_categories` | Public read — no auth required |
+    | `user_cards` | Authenticated — own rows only (RLS) |
+    | `user_preferences` | Authenticated — own row only (RLS) |
+
+  version: 1.0.0
+  contact:
+    name: CardWise
+    url: https://github.com/PriyankaChaganti/CreditCardRecommender
+
+servers:
+  - url: http://localhost:3000
+    description: Local development
+  - url: https://your-deployment.vercel.app
+    description: Production (Vercel)
+
+tags:
+  - name: Auth
+    description: Authentication endpoints
+  - name: Catalog
+    description: Card catalog (via Supabase SDK)
+  - name: Wallet
+    description: User wallet operations (via Supabase SDK)
+  - name: Preferences
+    description: User preferences (via Supabase SDK)
+
+paths:
+  /api/signout:
+    get:
+      tags:
+        - Auth
+      summary: Sign out the current user
+      description: |
+        Invalidates the Supabase session server-side, clears all `sb-*` auth
+        cookies from the browser, and redirects to `/login`.
+
+        This endpoint exists as a Route Handler (not a Server Action) because
+        only Route Handlers can reliably set/delete cookies in response headers
+        after the session has already been established.
+      operationId: signOut
+      responses:
+        "307":
+          description: Redirect to /login after successful sign-out
+          headers:
+            Location:
+              schema:
+                type: string
+                example: /login
+            Set-Cookie:
+              description: Expired Supabase auth cookies (maxAge=0)
+              schema:
+                type: string
+                example: sb-access-token=; Path=/; Max-Age=0; HttpOnly
+        "500":
+          description: Unexpected server error
+
+components:
+  schemas:
+    RewardRule:
+      type: object
+      required:
+        - category
+        - multiplier
+      properties:
+        category:
+          type: string
+          description: Spending category (e.g. "dining", "travel", "groceries")
+          example: dining
+        multiplier:
+          type: number
+          description: |
+            Cashback cards: percentage (e.g. 3 = 3%).
+            Points/miles cards: multiplier (e.g. 3 = 3× points per dollar).
+          example: 3
+
+    CatalogCard:
+      type: object
+      required:
+        - id
+        - issuer
+        - card_name
+        - network
+        - annual_fee
+        - reward_type
+        - point_value
+        - reward_rules
+      properties:
+        id:
+          type: string
+          description: Unique card identifier (slug)
+          example: chase-sapphire-preferred
+        issuer:
+          type: string
+          example: Chase
+        card_name:
+          type: string
+          example: Chase Sapphire Preferred
+        network:
+          type: string
+          enum: [Visa, Mastercard, "American Express", Discover]
+          example: Visa
+        annual_fee:
+          type: number
+          example: 95
+        reward_type:
+          type: string
+          enum: [cashback, points, miles]
+          example: points
+        point_value:
+          type: number
+          description: Estimated USD value per point/mile
+          example: 0.02
+        image:
+          type: string
+          description: Path to card image
+          example: /cards/chase-sapphire-preferred.png
+        reward_rules:
+          type: array
+          items:
+            $ref: "#/components/schemas/RewardRule"
+
+    UserCard:
+      type: object
+      required:
+        - id
+        - user_id
+        - card_name
+        - issuer
+        - network
+        - reward_type
+        - annual_fee
+        - point_value
+        - reward_rules
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Auto-generated UUID
+        user_id:
+          type: string
+          format: uuid
+          description: Supabase auth user ID
+        card_name:
+          type: string
+          example: Chase Sapphire Preferred
+        issuer:
+          type: string
+          example: Chase
+        network:
+          type: string
+          example: Visa
+        reward_type:
+          type: string
+          enum: [cashback, points, miles]
+        annual_fee:
+          type: number
+          example: 95
+        point_value:
+          type: number
+          example: 0.02
+        reward_rules:
+          type: array
+          items:
+            $ref: "#/components/schemas/RewardRule"
+        created_at:
+          type: string
+          format: date-time
+
+    MerchantCategory:
+      type: object
+      required:
+        - merchant_key
+        - category
+      properties:
+        merchant_key:
+          type: string
+          description: Lowercase merchant name used for lookup
+          example: starbucks
+        category:
+          type: string
+          description: Resolved spending category
+          example: dining
+
+    UserPreferences:
+      type: object
+      required:
+        - user_id
+      properties:
+        user_id:
+          type: string
+          format: uuid
+        point_valuation:
+          type: number
+          description: Custom USD value per point (default 0.01)
+          example: 0.015
+        reward_pref:
+          type: string
+          enum: [all, cashback, points]
+          description: Filter recommendations to this reward type
+          example: all
+        updated_at:
+          type: string
+          format: date-time
+
+  securitySchemes:
+    supabaseAuth:
+      type: apiKey
+      in: cookie
+      name: sb-access-token
+      description: Supabase session cookie set automatically on login
