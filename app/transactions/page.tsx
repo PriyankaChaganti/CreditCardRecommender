@@ -188,20 +188,14 @@ function AddTransactionForm({
           placeholder="Any notes…" className={`${inputCls} resize-none`} />
       </div>
 
-      <div className="flex flex-col gap-2 pt-1">
-        <div className="flex gap-2">
-          <button type="submit"
-            className="flex-1 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
-            {submitLabel}
-          </button>
-          <button type="button" onClick={onCancel}
-            className="flex-1 rounded-xl border border-slate-200 dark:border-slate-700 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-            Cancel
-          </button>
-        </div>
-        <button type="button" onClick={handleClear}
-          className="w-full rounded-xl border border-slate-200 dark:border-slate-700 py-2 text-xs font-medium text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
-          Clear all fields
+      <div className="flex gap-2 pt-1">
+        <button type="submit"
+          className="flex-1 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
+          {submitLabel}
+        </button>
+        <button type="button" onClick={onCancel}
+          className="flex-1 rounded-xl border border-slate-200 dark:border-slate-700 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+          Cancel
         </button>
       </div>
     </form>
@@ -658,13 +652,19 @@ export default function TransactionsPage() {
             <span className="text-xs text-slate-400">to</span>
             <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)}
               className="rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2.5 py-1.5 text-xs text-slate-600 dark:text-slate-300 outline-none focus:border-indigo-400 transition-all" />
+            {(filterCard || filterCategory || dateFrom || dateTo || search) && (
+              <button
+                type="button"
+                onClick={() => { setFilterCard(""); setFilterCategory(""); setDateFrom(""); setDateTo(""); setSearch(""); }}
+                className="inline-flex items-center gap-1 rounded-lg border border-slate-200 dark:border-slate-700 px-2.5 py-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
+              >
+                <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+                Clear
+              </button>
+            )}
           </div>
-          {(filterCard || filterCategory || dateFrom || dateTo || search) && (
-            <button type="button" onClick={() => { setFilterCard(""); setFilterCategory(""); setDateFrom(""); setDateTo(""); setSearch(""); }}
-              className="rounded-lg border border-slate-200 dark:border-slate-700 px-3 py-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-              Clear filters
-            </button>
-          )}
         </div>
       </div>
 
