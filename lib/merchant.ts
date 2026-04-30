@@ -20,11 +20,11 @@ export const KNOWN_CATEGORIES = [
   "dining",
   "travel",
   "groceries",
-  "online",
+  "fitness",
   "gas",
   "entertainment",
   "shopping",
-  "fitness",
+  "online",
   "rent",
   "other",
 ] as const;
