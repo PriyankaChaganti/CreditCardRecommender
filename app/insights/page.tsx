@@ -410,14 +410,18 @@ export default function InsightsPage() {
                 <div className="h-52">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={agg.byCategory.slice(0, 6).map(c => ({
-                      name: (CATEGORY_ICONS[c.category] ?? "") + " " + c.category.slice(0, 5),
+                      name: CATEGORY_ICONS[c.category] ?? "💳",
+                      label: c.category,
                       Earned: +c.earned.toFixed(2),
                       Missed: +c.missed.toFixed(2),
-                    }))} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
+                    }))} margin={{ top: 0, right: 0, left: -20, bottom: 4 }}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                      <XAxis dataKey="name" tick={{ fontSize: 10 }} />
+                      <XAxis dataKey="name" tick={{ fontSize: 16 }} />
                       <YAxis tick={{ fontSize: 10 }} />
-                      <Tooltip formatter={(v: number) => fmt(v)} />
+                      <Tooltip
+                        formatter={(v: number) => fmt(v)}
+                        labelFormatter={(_, payload) => payload?.[0]?.payload?.label ?? ""}
+                      />
                       <Legend wrapperStyle={{ fontSize: 11 }} />
                       <Bar dataKey="Earned" fill="#10b981" radius={[4, 4, 0, 0]} />
                       <Bar dataKey="Missed" fill="#f87171" radius={[4, 4, 0, 0]} />
