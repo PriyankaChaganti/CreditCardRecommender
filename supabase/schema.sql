@@ -37,6 +37,24 @@ create table if not exists public.user_cards (
 alter table public.user_cards enable row level security;
 create policy "Users manage own cards" on public.user_cards for all using (auth.uid() = user_id);
 
+-- user_transactions table
+create table if not exists public.user_transactions (
+  id          uuid primary key default gen_random_uuid(),
+  user_id     uuid not null references auth.users(id) on delete cascade,
+  merchant    text not null,
+  amount      numeric not null,
+  date        date not null default current_date,
+  category    text not null,
+  card_id     uuid references public.user_cards(id) on delete set null,
+  card_name   text,
+  mcc_code    text,
+  notes       text,
+  created_at  timestamptz not null default now()
+);
+alter table public.user_transactions enable row level security;
+create policy "Users manage own transactions" on public.user_transactions for all using (auth.uid() = user_id);
+create index if not exists user_transactions_user_date_idx on public.user_transactions (user_id, date desc);
+
 -- user_preferences table
 create table if not exists public.user_preferences (
   user_id uuid primary key references auth.users(id) on delete cascade,
