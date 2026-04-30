@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Modal } from "@/components/Modal";
 import { IssuerLogo } from "@/components/IssuerLogo";
 import { createClient } from "@/lib/supabase/client";
-import { KNOWN_CATEGORIES } from "@/lib/merchant";
+import { KNOWN_CATEGORIES, suggestMerchants, resolveMerchantToCategory } from "@/lib/merchant";
 import { recommendBestCards } from "@/lib/recommendation";
 import { useCardsStore } from "@/store/useCardsStore";
 import type { UserCard } from "@/types/card";
@@ -120,6 +120,19 @@ function AddTransactionForm({
     set("card_name", c?.card_name ?? null);
   }
 
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const suggestions = useMemo(() => suggestMerchants(form.merchant), [form.merchant]);
+
+  function selectSuggestion(key: string) {
+    const { category } = resolveMerchantToCategory(key);
+    setForm((prev) => ({
+      ...prev,
+      merchant: key.charAt(0).toUpperCase() + key.slice(1),
+      ...(category ? { category } : {}),
+    }));
+    setShowSuggestions(false);
+  }
+
   function handleClear() {
     setForm({
       merchant: "", amount: 0, date: today(), category: "dining",
@@ -138,11 +151,39 @@ function AddTransactionForm({
         </div>
       )}
 
-      {/* Merchant */}
-      <div>
+      {/* Merchant with autocomplete */}
+      <div className="relative">
         <label className={labelCls}>Merchant</label>
-        <input required type="text" value={form.merchant} onChange={(e) => set("merchant", e.target.value)}
-          placeholder="e.g. Starbucks, Amazon…" className={inputCls} />
+        <input
+          required
+          type="text"
+          value={form.merchant}
+          onChange={(e) => { set("merchant", e.target.value); setShowSuggestions(true); }}
+          onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
+          onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+          placeholder="e.g. Starbucks, Amazon…"
+          className={inputCls}
+        />
+        {showSuggestions && suggestions.length > 0 && (
+          <ul className="absolute left-0 top-full z-50 mt-1 w-full overflow-hidden rounded-xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl">
+            {suggestions.map((key) => {
+              const { category } = resolveMerchantToCategory(key);
+              return (
+                <li key={key}>
+                  <button
+                    type="button"
+                    onMouseDown={() => selectSuggestion(key)}
+                    className="flex w-full items-center gap-3 px-4 py-2.5 text-sm hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                  >
+                    <span>{CATEGORY_ICONS[category ?? "other"] ?? "💳"}</span>
+                    <span className="font-medium text-slate-800 dark:text-slate-100 capitalize">{key}</span>
+                    {category && <span className="ml-auto text-xs capitalize text-slate-400 dark:text-slate-500">{category}</span>}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
 
       {/* Amount + Date */}
