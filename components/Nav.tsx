@@ -331,25 +331,13 @@ useEffect(() => {
           <span className="text-sm font-bold text-slate-900 dark:text-white">CardWise</span>
         </Link>
 
-        {/* User — right */}
-        <div className="ml-auto">
-          {userEmail ? (
-            <div className="relative" ref={menuRef}>
-              <button
-                type="button"
-                onClick={() => {/* avatar tap handled by drawer */}}
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-violet-600 text-xs font-bold text-white"
-              >
-                {initials}
-              </button>
-            </div>
-          ) : (
-            <div className="flex items-center gap-1.5">
-              <Link href="/login" className="rounded-full border border-slate-200 dark:border-slate-700 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Login</Link>
-              <Link href="/signup" className="rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-3 py-1 text-xs font-semibold text-white">Sign up</Link>
-            </div>
-          )}
-        </div>
+        {/* Login/Signup — right (guests only) */}
+        {!userEmail && (
+          <div className="ml-auto flex items-center gap-1.5">
+            <Link href="/login" className="rounded-full border border-slate-200 dark:border-slate-700 px-3 py-1 text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800">Login</Link>
+            <Link href="/signup" className="rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-3 py-1 text-xs font-semibold text-white">Sign up</Link>
+          </div>
+        )}
       </header>
 
       {/* ════════════════════════════════════════════════════════
