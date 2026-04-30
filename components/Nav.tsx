@@ -81,7 +81,7 @@ const primaryNav = [
 ];
 
 const secondaryNav = [
-  { href: "/insights",     label: "Insights",     icon: <Icon.Insights />,     soon: true  },
+  { href: "/insights",     label: "Insights",     icon: <Icon.Insights />,     soon: false },
   { href: "/transactions", label: "Transactions", icon: <Icon.Transactions />, soon: false },
   { href: "/compare",      label: "Compare",      icon: <Icon.Compare />,      soon: false },
   { href: "/alerts",       label: "Alerts",       icon: <Icon.Alerts />,       soon: true  },
