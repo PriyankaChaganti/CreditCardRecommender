@@ -118,6 +118,13 @@ function AddTransactionForm({
     set("card_name", c?.card_name ?? null);
   }
 
+  function handleClear() {
+    setForm({
+      merchant: "", amount: 0, date: today(), category: "dining",
+      card_id: null, card_name: null, mcc_code: null, notes: null,
+    });
+  }
+
   const inputCls = "w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-3 py-2.5 text-sm text-slate-900 dark:text-slate-50 outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/20 transition-all";
   const labelCls = "block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5";
 
@@ -181,14 +188,20 @@ function AddTransactionForm({
           placeholder="Any notes…" className={`${inputCls} resize-none`} />
       </div>
 
-      <div className="flex gap-2 pt-1">
-        <button type="submit"
-          className="flex-1 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
-          {submitLabel}
-        </button>
-        <button type="button" onClick={onCancel}
-          className="flex-1 rounded-xl border border-slate-200 dark:border-slate-700 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
-          Cancel
+      <div className="flex flex-col gap-2 pt-1">
+        <div className="flex gap-2">
+          <button type="submit"
+            className="flex-1 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">
+            {submitLabel}
+          </button>
+          <button type="button" onClick={onCancel}
+            className="flex-1 rounded-xl border border-slate-200 dark:border-slate-700 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+            Cancel
+          </button>
+        </div>
+        <button type="button" onClick={handleClear}
+          className="w-full rounded-xl border border-slate-200 dark:border-slate-700 py-2 text-xs font-medium text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+          Clear all fields
         </button>
       </div>
     </form>
