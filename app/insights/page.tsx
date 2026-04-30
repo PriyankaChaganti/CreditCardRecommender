@@ -389,7 +389,7 @@ export default function InsightsPage() {
                           dataKey="value" paddingAngle={2}>
                           {agg.byCategory.map((_, i) => <Cell key={i} fill={CHART_COLORS[i % CHART_COLORS.length]} />)}
                         </Pie>
-                        <Tooltip formatter={(v: number) => fmt(v)} />
+                        <Tooltip formatter={(v) => fmt(Number(v ?? 0))} />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
@@ -422,7 +422,7 @@ export default function InsightsPage() {
                       <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                       <XAxis dataKey="name" tick={{ fontSize: 11 }} angle={-35} textAnchor="end" interval={0} />
                       <YAxis tick={{ fontSize: 10 }} />
-                      <Tooltip formatter={(v: number) => fmt(v)} />
+                      <Tooltip formatter={(v) => fmt(Number(v ?? 0))} />
                       <Legend wrapperStyle={{ fontSize: 11 }} />
                       <Bar dataKey="Earned" fill="#10b981" radius={[4, 4, 0, 0]} />
                       <Bar dataKey="Missed" fill="#f87171" radius={[4, 4, 0, 0]} />
@@ -441,7 +441,7 @@ export default function InsightsPage() {
                       <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
                       <XAxis dataKey="label" tick={{ fontSize: 10 }} />
                       <YAxis tick={{ fontSize: 10 }} />
-                      <Tooltip formatter={(v: number) => fmt(v)} />
+                      <Tooltip formatter={(v) => fmt(Number(v ?? 0))} />
                       <Legend wrapperStyle={{ fontSize: 11 }} />
                       <Line type="monotone" dataKey="earned"    stroke="#10b981" strokeWidth={2} dot={false} name="Earned" />
                       <Line type="monotone" dataKey="missed"    stroke="#f87171" strokeWidth={2} dot={false} name="Missed" />
