@@ -18,6 +18,7 @@ const CATEGORY_ICONS: Record<string, string> = {
   entertainment: "🎬",
   online: "💻",
   shopping: "🛍️",
+  fitness: "🏋️",
   rent: "🏠",
   other: "💳",
 };

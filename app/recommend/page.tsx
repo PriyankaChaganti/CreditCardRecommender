@@ -22,7 +22,7 @@ function capitalize(s: string): string {
 
 const CATEGORY_ICONS: Record<string, string> = {
   dining: "🍽️", travel: "✈️", groceries: "🛒", gas: "⛽",
-  entertainment: "🎬", online: "💻", shopping: "🛍️", rent: "🏠", other: "💳",
+  entertainment: "🎬", online: "💻", shopping: "🛍️", fitness: "🏋️", rent: "🏠", other: "💳",
 };
 
 const CATEGORY_FALLBACKS: Record<string, string[]> = {

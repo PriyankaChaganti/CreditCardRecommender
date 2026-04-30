@@ -24,6 +24,7 @@ export const KNOWN_CATEGORIES = [
   "gas",
   "entertainment",
   "shopping",
+  "fitness",
   "rent",
   "other",
 ] as const;

@@ -14,7 +14,7 @@ const REF_SPEND = 100;
 
 const CATEGORY_ICONS: Record<string, string> = {
   dining: "🍽️", travel: "✈️", groceries: "🛒", gas: "⛽",
-  entertainment: "🎬", online: "💻", shopping: "🛍️", rent: "🏠", other: "💳",
+  entertainment: "🎬", online: "💻", shopping: "🛍️", fitness: "🏋️", rent: "🏠", other: "💳",
 };
 
 /* ─── reward helpers ─────────────────────────────────────── */
