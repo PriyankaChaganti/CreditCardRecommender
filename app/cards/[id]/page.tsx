@@ -48,57 +48,56 @@ function CardHero({ card }: { card: CatalogCard }) {
 
 function AddToWalletButton({ card }: { card: CatalogCard }) {
   const addCard = useCardsStore((s) => s.addCard);
+  const deleteCard = useCardsStore((s) => s.deleteCard);
   const walletCards = useCardsStore((s) => s.cards);
-  const [status, setStatus] = useState<"idle" | "added" | "duplicate">("idle");
+  const [status, setStatus] = useState<"idle" | "added">("idle");
 
-  const alreadyAdded = walletCards.some(
+  const walletCard = walletCards.find(
     (c) => c.card_name.trim().toLowerCase() === card.card_name.trim().toLowerCase()
   );
+  const isInWallet = !!walletCard || status === "added";
 
   async function handleAdd() {
-    if (alreadyAdded) {
-      setStatus("duplicate");
-      return;
-    }
-    // Strip catalog-only fields before passing to addCard
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { id: _id, image: _image, ...cardData } = card;
     const res = await addCard(cardData);
-    setStatus(res.ok ? "added" : "duplicate");
+    if (res.ok) setStatus("added");
   }
 
-  if (status === "added") {
+  async function handleRemove() {
+    const target = walletCard ?? walletCards.find(
+      (c) => c.card_name.trim().toLowerCase() === card.card_name.trim().toLowerCase()
+    );
+    if (!target) return;
+    await deleteCard(target.id);
+    setStatus("idle");
+  }
+
+  if (isInWallet) {
     return (
       <div className="flex flex-col gap-2">
         <p className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-200">
-          Added to your wallet!
+          ✓ Already in your wallet
         </p>
-        <Link
-          href="/wallet"
-          className="inline-flex justify-center rounded-full border border-zinc-200 px-5 py-2.5 text-sm font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-900"
+        <button
+          type="button"
+          onClick={handleRemove}
+          className="rounded-full border border-red-200 dark:border-red-800 px-6 py-2.5 text-sm font-semibold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 transition-colors"
         >
-          View my cards
-        </Link>
+          Remove from wallet
+        </button>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col gap-2">
-      <button
-        type="button"
-        onClick={handleAdd}
-        disabled={alreadyAdded}
-        className="rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
-      >
-        {alreadyAdded ? "Already in your wallet" : "Add to my cards"}
-      </button>
-      {status === "duplicate" && !alreadyAdded && (
-        <p className="text-xs text-red-600 dark:text-red-400">
-          This card is already in your wallet.
-        </p>
-      )}
-    </div>
+    <button
+      type="button"
+      onClick={handleAdd}
+      className="rounded-full bg-emerald-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 transition-colors"
+    >
+      Add to my cards
+    </button>
   );
 }
 
